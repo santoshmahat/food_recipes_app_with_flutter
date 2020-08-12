@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/screens/categories_screen.dart';
 import 'package:ecommerce_app/screens/favorite_screen.dart';
+import 'package:ecommerce_app/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -38,6 +39,7 @@ class _TabsScreenState extends State<TabsScreen> {
               icon: Icon(Icons.favorite), title: Text("Favorite"))
         ],
       ),
+      drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
     );
   }
