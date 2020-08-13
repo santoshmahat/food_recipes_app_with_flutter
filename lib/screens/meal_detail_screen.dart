@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 
 class MealDetail extends StatelessWidget {
   static const routeName = "/meal-detail";
+
+  final Function toggleFavorite;
+
+  final Function isFavorite;
+  MealDetail(this.toggleFavorite, this.isFavorite);
   @override
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context).settings.arguments;
@@ -11,6 +16,11 @@ class MealDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(selectedMeal.title),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child:
+            Icon(isFavorite(mealId) ? Icons.favorite : Icons.favorite_border),
+        onPressed: () => toggleFavorite(mealId),
       ),
       body: SingleChildScrollView(
         child: Column(
