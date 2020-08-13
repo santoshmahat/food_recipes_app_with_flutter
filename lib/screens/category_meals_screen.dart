@@ -1,16 +1,21 @@
-import 'package:ecommerce_app/dummy_data.dart';
+import 'package:ecommerce_app/models/Meal.dart';
 import 'package:ecommerce_app/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryMealScreen extends StatelessWidget {
   static const routeName = 'category-meals';
+
+  final List<Meal> availableMeals;
+
+  CategoryMealScreen(this.availableMeals);
+
   Widget build(BuildContext context) {
     final routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
     final catTitle = routeArgs['title'];
     final catId = routeArgs['id'];
 
-    final catMeals = DUMMY_MEALS.where((meal) {
+    final catMeals = availableMeals.where((meal) {
       return meal.categories.contains(catId);
     }).toList();
     return Scaffold(

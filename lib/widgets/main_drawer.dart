@@ -1,4 +1,3 @@
-import 'package:ecommerce_app/screens/categories_screen.dart';
 import 'package:ecommerce_app/screens/filters_screen.dart';
 import 'package:flutter/material.dart';
 
